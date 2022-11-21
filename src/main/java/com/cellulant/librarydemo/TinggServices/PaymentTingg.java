@@ -4,7 +4,6 @@ import com.cellulant.librarydemo.TinggModel.QueryBillCredentialsModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillPacketModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillPayloadModel;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -21,7 +20,6 @@ import java.util.Map;
  * @created 19/11/2022
  */
 
-@Slf4j
 @Service
 public class PaymentTingg {
 
@@ -58,7 +56,7 @@ public class PaymentTingg {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        log.info("my payload {}", queryBillModel);
+        System.out.println("my payload >>>"+queryBillModel);
 
         String url = "https://beep2.cellulant.africa:9001/paymentRouter/JSONV2/";
         ResponseEntity res =  tinggHttpRequest.postRequest(url, queryBillModel, headers);

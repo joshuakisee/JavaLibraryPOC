@@ -1,8 +1,5 @@
 package com.cellulant.librarydemo.TinggModel;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
 /**
@@ -11,9 +8,23 @@ import java.util.List;
  * @created 21/11/2022
  */
 
-@Setter
-@Getter
 public class QueryBillPayloadModel {
     private QueryBillCredentialsModel credentials;
     private List<QueryBillPacketModel> packet;
+
+    public QueryBillCredentialsModel getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(QueryBillCredentialsModel credentials) {
+        this.credentials = credentials;
+    }
+
+    public List<QueryBillPacketModel> getPacket() {
+        return packet;
+    }
+
+    public void setPacket(List<QueryBillPacketModel> packet) {
+        this.packet = packet;
+    }
 }
