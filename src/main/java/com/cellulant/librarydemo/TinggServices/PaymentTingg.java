@@ -60,10 +60,10 @@ public class PaymentTingg {
 
         System.out.println("my payload >>>"+queryBillModel);
 
-        String url = "https://beep2.cellulant.africa:9001/paymentRouter/JSONV2/";
-        ResponseEntity res =  tinggHttpRequest.postRequest(url, queryBillModel, headers);
+//        String url = "https://beep2.cellulant.africa:9001/paymentRouter/JSONV2/";
+//        ResponseEntity res =  tinggHttpRequest.postRequest(url, queryBillModel, headers);
 
-        return res.getBody();
+        return queryBillModel;
 
     }
 
