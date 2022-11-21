@@ -26,7 +26,13 @@ public class PaymentTingg {
     @Autowired
     TinggHttpRequest tinggHttpRequest;
 
-    public Object queryBill(String countryCode, String username, String password, String serviceId, String accountNumber, String serviceCode, String MSISDN){
+    public Object queryBill(String countryCode,
+                            String username,
+                            String password,
+                            String serviceId,
+                            String accountNumber,
+                            String serviceCode,
+                            String MSISDN){
 
         //formulate request
         QueryBillCredentialsModel queryBillCredentialsModel =  new QueryBillCredentialsModel();
@@ -48,10 +54,6 @@ public class PaymentTingg {
         queryBillModel.setCountryCode(countryCode);
         queryBillModel.setFunction("BEEP.queryBill");
         queryBillModel.setPayload(queryBillPayloadModel);
-
-
-        queryBillModel.getPayload().getCredentials().setUsername(username);
-        queryBillModel.getPayload().getCredentials().setPassword(password);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
