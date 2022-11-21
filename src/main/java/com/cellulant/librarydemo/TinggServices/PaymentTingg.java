@@ -26,7 +26,11 @@ public class PaymentTingg {
                             String serviceId,
                             String accountNumber,
                             String serviceCode,
-                            String MSISDN){
+                            String MSISDN,
+                            String url){
+
+        //get configs
+
 
         //formulate request
         QueryBillCredentialsModel queryBillCredentialsModel =  new QueryBillCredentialsModel();
@@ -51,10 +55,6 @@ public class PaymentTingg {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
-        System.out.println("my payload >>>"+queryBillModel);
-
-        String url = "https://beep2.cellulant.africa:9001/paymentRouter/JSONV2/";
 
         TinggHttpRequest tinggHttpRequest = new TinggHttpRequest();
         ResponseEntity res =  tinggHttpRequest.postRequest(url, queryBillModel, headers);
