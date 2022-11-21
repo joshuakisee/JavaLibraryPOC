@@ -4,15 +4,12 @@ import com.cellulant.librarydemo.TinggModel.QueryBillCredentialsModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillPacketModel;
 import com.cellulant.librarydemo.TinggModel.QueryBillPayloadModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author joshua.kisee
@@ -22,9 +19,6 @@ import java.util.Map;
 
 @Service
 public class PaymentTingg {
-
-    @Autowired
-    TinggHttpRequest tinggHttpRequest;
 
     public Object queryBill(String countryCode,
                             String username,
@@ -61,9 +55,11 @@ public class PaymentTingg {
         System.out.println("my payload >>>"+queryBillModel);
 
         String url = "https://beep2.cellulant.africa:9001/paymentRouter/JSONV2/";
+
+        TinggHttpRequest tinggHttpRequest = new TinggHttpRequest();
         ResponseEntity res =  tinggHttpRequest.postRequest(url, queryBillModel, headers);
 
-        return res;
+        return res.getBody();
 
     }
 
